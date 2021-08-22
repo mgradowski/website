@@ -8,37 +8,57 @@
   <title>guest@mgradow.ski ~></title>
   <style>
     :root {
-      background-color: rgb(29, 31, 33);
-      color: #fff;
+      --bg-color: rgb(29, 31, 33);
+      --text-color: rgb(197, 198, 197);
+      --cmd-color: rgb(0, 95, 215);
+      --arg-color: rgb(0, 175, 255);
+      --user-color: rgb(185, 202, 74);
+      --prompt-color: rgb(181, 189, 104);
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
 
     span.command {
-      color: rgb(0, 95, 215);
+      color: var(--cmd-color);
     }
 
     span.arg {
-      color: rgb(0, 175, 255);
+      color: var(--arg-color);
     }
 
     span.path {
-      color: rgb(0, 175, 255);
+      color: var(--arg-color);
       text-decoration: underline;
     }
 
-    span.host {
-      color: rgb(197, 200, 198);
-    }
-
     span.user {
-      color: rgb(185, 202, 74);
+      color: var(--user-color);
     }
 
     span.prompt {
-      color: rgb(181, 189, 104);
+      color: var(--prompt-color);
+    }
+
+    @keyframes blinking {
+      50% {
+        background-color: var(--bg-color);
+      }
+    }
+
+    span.cursor {
+      display: block;
+      width: 1ch;
+      height: 1em;
+      background-color: rgb(197, 198, 197);
+      animation-name: blinking;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: step-end;
+
     }
 
     a {
-      color: rgb(197, 200, 198);
+      color: var(--text-color);
       text-decoration: underline;
     }
   </style>
@@ -46,10 +66,10 @@
 
 <body>
   <pre>
-<span class="user">guest</span><span class="host">@mgradow.ski</span> <span class="prompt">~></span> <span class="command">cat</span> <span class="path">README.txt</span>
+<span class="user">guest</span>@mgradow.ski <span class="prompt">~></span> <span class="command">cat</span> <span class="path">README.txt</span>
 
   Mikołaj Gradowski &lt;<a href="maito:hello@mgradow.ski">hello@mgradow.ski</a>&gt;
-  <a href="http://cv.mgradow.ski">cv.mgradow.ski</a>
+     <a href="http://cv.mgradow.ski">cv.mgradow.ski</a>
 
                                                       *              
                                                     ****             
@@ -83,7 +103,8 @@
                                                     ****             
                                                       *              
 
-<span class="user">guest</span><span class="host">@mgradow.ski</span> <span class="prompt">~></span> <span class="command">sleep</span> <span class="arg">inf</span>
+<span class="user">guest</span>@mgradow.ski <span class="prompt">~></span> <span class="command">sleep</span> <span class="arg">inf</span>
+<span class="cursor"></span>
   
   </pre>
 </body>
